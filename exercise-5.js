@@ -33,8 +33,6 @@ var entries = {
 function findEntry(firstName,lastName,email){
   var results = [];
 
-  //console.log(firstName +' '+ lastName +' '+ email);
-  
   Object.keys(entries).forEach(function(key) {
 
       var e = entries[key];
