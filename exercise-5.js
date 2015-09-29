@@ -32,23 +32,25 @@ var entries = {
 
 function findEntry(firstName,lastName,email){
   var results = [];
-
+  var firstName = firstName ? firstName : undefined;
+  var lastName = lastName ? lastName : undefined;
+  var email = email ? email.toLowerCase() : undefined;
   Object.keys(entries).forEach(function(key) {
 
       var e = entries[key];
 
-      if (e.firstName.toLowerCase().indexOf(firstName.toLowerCase()) >= 0 || e.lastName.toLowerCase().indexOf(lastName.toLowerCase()) >= 0) {
+      if (e.firstName.toLowerCase().indexOf(firstName) >= 0 || e.lastName.toLowerCase().indexOf(lastName) >= 0) {
 
           results.push(e);
 
       }
       else {
-        e.emails.forEach(function(eObj){
+        e.emails.some(function(eObj){
           Object.keys(eObj).some(function(emailKey) {
 
             var emailadresses = eObj[emailKey];
 
-            if (emailadresses.toLowerCase().indexOf(email.toLowerCase()) >= 0) {
+            if (emailadresses.toLowerCase().indexOf(email) >= 0) {
               results.push(e);
               return true;
             }
