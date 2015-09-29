@@ -41,7 +41,7 @@ app.get('/entry/:entryId', function (req, res) {
       res.json(getEntry(req.params.entryId));
   }
   catch(e){
-      res.status(400).send(e.message);
+      res.status(404).send(e.message);
       console.log(e);
   }
 });
