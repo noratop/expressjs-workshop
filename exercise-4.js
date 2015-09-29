@@ -38,7 +38,7 @@ app.get('/entry/:entryId', function (req, res) {
   //console.log(req);
   //console.log(res);
   try {
-      res.json(getEntry(req.params.id));
+      res.json(getEntry(req.params.entryId));
   }
   catch(e){
       res.status(400).send(e.message);
