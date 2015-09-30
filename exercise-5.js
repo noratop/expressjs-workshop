@@ -40,21 +40,14 @@ function findEntry(firstName,lastName,email){
       var e = entries[key];
 
       if (e.firstName.toLowerCase().indexOf(firstName) >= 0 || e.lastName.toLowerCase().indexOf(lastName) >= 0) {
-
           results.push(e);
-
       }
       else {
         e.emails.some(function(eObj){
-          Object.keys(eObj).some(function(emailKey) {
-
-            var emailadresses = eObj[emailKey];
-
-            if (emailadresses.toLowerCase().indexOf(email) >= 0) {
+            if (eObj.address.toLowerCase().indexOf(email) >= 0) {
               results.push(e);
               return true;
             }
-          });
         });
       }
   });
